@@ -100,10 +100,27 @@ function homeController(page) {
 
 function colorController(page, color) {
     var rgb = hexToRgb(color.value);
+    var hexSection = $(page).find('#hex-section');
+    var rgbSection = $(page).find('#rgb-section');
+    var hexCopy = hexSection.find('.app-button');
+    var rgbCopy = rgbSection.find('.app-button');
+    var hexText = '#' + color.value;
+    var rgbText = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+
     $(page).find('.app-content').css('background-color', '#' + color.value);
     $(page).find('.app-title').text(color.name);
-    $(page).find('#hex-value').text('#' + color.value);
-    $(page).find('#rgb-value').text('rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')');
+
+    hexSection.find('.color-value').text(hexText);
+    hexCopy.on('click', function () {
+        cordova.plugins.clipboard.copy(hexText);
+        hexCopy.text('copied');
+    });
+
+    rgbSection.find('.color-value').text(rgbText);
+    rgbCopy.on('click', function () {
+        cordova.plugins.clipboard.copy(rgbText);
+        rgbCopy.text('copied');
+    });
 }
 
 app.initialize();
