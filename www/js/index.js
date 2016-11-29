@@ -31,6 +31,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         App.controller('home', homeController);
+        App.controller('color', colorController);
         try {
             App.restore();
         } catch (err) {
@@ -68,8 +69,41 @@ var colors = [
     { name: 'Asbestos', value: '7f8c8d' }
 ];
 
-function homeController(page) {
+// http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
 
+function colorElement(color) {
+    var element = $('<div class="color-text"></div>');
+    element.css('background-color', '#' + color.value);
+    element.on('click', function () {
+        App.load('color', color);
+    });
+    return element;
+}
+
+function homeController(page) {
+    var list = $(page).find('#color-list');
+    for (var i=0; i<colors.length; i+=2) {
+        var firstBlock = colorElement(colors[i]);
+        var secondBlock = colorElement(colors[i + 1]);
+        var item = $('<div></div>').append(firstBlock).append(secondBlock);
+        list.append(item);
+    }
+}
+
+function colorController(page, color) {
+    var rgb = hexToRgb(color.value);
+    $(page).find('.app-content').css('background-color', '#' + color.value);
+    $(page).find('.app-title').text(color.name);
+    $(page).find('#hex-value').text('#' + color.value);
+    $(page).find('#rgb-value').text('rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')');
 }
 
 app.initialize();
