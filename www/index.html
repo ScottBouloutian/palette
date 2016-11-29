@@ -38,12 +38,31 @@
     </head>
     <body>
         <div class="app-page" data-page="home">
-            <div class="app-topbar red">
+            <div class="app-topbar dark-blue">
                 <div class="app-title">Palette</div>
             </div>
             <div class="app-content">
-                <ul id="color-list" class="app-list">
-                </ul>
+                <div id="color-list" class="app-list" />
+            </div>
+        </div>
+        <div class="app-page" data-page="color">
+            <div class="app-topbar dark-blue">
+                <div class="app-button" data-back>Back</div>
+                <div class="app-title">Palette</div>
+            </div>
+            <div class="app-content">
+                <div class="color-background">
+                    <div class="app-section">
+                        <p>hex</p>
+                        <p id="hex-value" class="color-value" />
+                        <div class="app-button dark-blue copy-button">copy</div>
+                    </div>
+                    <div class="app-section">
+                        <p>rgb</p>
+                        <p id="rgb-value" class="color-value" />
+                        <div class="app-button dark-blue copy-button">copy</div>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
