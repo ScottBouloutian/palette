@@ -3,14 +3,14 @@
 }
 
 .app-topbar .app-button {
-    top: 12px;
+    top: 15px;
 }
 
 .color-text {
     display: inline-block;
-    color: white;
     width: 50%;
     height: 100%;
+    float: left;
 }
 
 #color-list div {
@@ -23,5 +23,41 @@
 }
 
 .copy-button {
-    margin-top: 16px !important;
+    margin-top: 16px;
+}
+
+.slider {
+    width: 100%;
+}
+
+.section-left {
+    display: inline-block;
+    width: 50%;
+}
+
+.slider-value {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.app-list li {
+    padding: 0px;
+    height: auto;
+}
+
+.add-color {
+    width: 50%;
+    height: 100px;
+    text-align: center;
+    font-size: 15px;
+    outline: dashed;
+    outline-offset: -10px;
+    outline-color: #345;
+    float: left;
+}
+
+.add-color div {
+    display: inline-block;
+    line-height: 100px;
 }
