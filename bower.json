@@ -1,0 +1,23 @@
+{
+  "name": "palette",
+  "description": "App for Colorizing User Interfaces 🎨",
+  "main": "index.js",
+  "authors": [
+    "Scott Bouloutian"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ScottBouloutian/palette",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "appjs": "^3.0.10",
+    "zeptojs": "^1.2.0",
+    "Ionicons": "ionicons#^2.0.1"
+  }
+}

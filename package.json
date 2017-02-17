@@ -1,0 +1,29 @@
+{
+  "name": "palette",
+  "version": "1.3.0",
+  "description": "App for Colorizing User Interfaces 🎨",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "sh install.sh",
+    "lint": "eslint www/js",
+    "start": "cordova emulate ios",
+    "watch": "nodemon --exec \"cordova emulate ios\" --watch \"www\" --ext \"html js css\"",
+    "release": "eslint www/js && cordova build ios --release && open platforms/ios/Palette.xcworkspace"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottBouloutian/palette.git"
+  },
+  "author": "Scott Bouloutian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottBouloutian/palette/issues"
+  },
+  "homepage": "https://github.com/ScottBouloutian/palette#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "nodemon": "^1.11.0"
+  }
+}
